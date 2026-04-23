@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#073e81">
+<title>ByB Laboratorio · Análisis clínicos en Alta Gracia</title>
+<meta name="description" content="Laboratorio de análisis clínicos en Alta Gracia. Sede central frente al Tajamar y extracciones en Villa del Prado, Villa Ciudad de América y Los Reartes. Obras sociales y prepagas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Inter+Tight:wght@300;400;500;600&display=swap">
+
+<style>
+/* ---------- TOKENS ---------- */
+:root{
+  --ink:#073e81;
+  --ink-2:#0a4f9e;
+  --ink-deep:#052a58;
+  --paper:#fbf8f2;
+  --paper-2:#f3ecde;
+  --yellow:#eac32b;
+  --orange:#fbaa34;
+  --hair:rgba(7,62,129,.14);
+  --muted:rgba(7,62,129,.65);
+  --serif:"Fraunces",ui-serif,Georgia,serif;
+  --sans:"Inter Tight",ui-sans-serif,system-ui,sans-serif;
+  --maxw:1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+h1,h2,h3,h4,p{margin:0}
+::selection{background:var(--yellow);color:var(--ink)}
+
+.display{
+  font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:.98;
+  font-variation-settings:"opsz" 144,"SOFT" 40;
+}
+.eyebrow{
+  font-family:var(--sans);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:500;color:var(--muted);
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+@media (min-width:720px){.wrap{padding:0 40px}}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--paper) 86%,transparent);
+  backdrop-filter:saturate(140%) blur(14px);
+  -webkit-backdrop-filter:saturate(140%) blur(14px);
+  border-bottom:1px solid var(--hair);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:500;font-size:1.25rem;letter-spacing:-.01em}
+.brand-mark{
+  width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;font-family:var(--serif);font-weight:500;font-size:.92rem;
+  box-shadow:inset 0 0 0 1px var(--yellow);
+}
+.nav-links{display:none;gap:28px;font-size:.92rem;color:var(--muted)}
+.nav-links a{position:relative}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;background:var(--orange);transition:right .35s ease}
+.nav-links a:hover::after{right:0}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--ink);color:var(--paper);font-size:.87rem;font-weight:500;transition:transform .2s,background .2s}
+.nav-cta:hover{background:var(--ink-2);transform:translateY(-1px)}
+.nav-cta svg{width:14px;height:14px}
+@media (min-width:820px){.nav-links{display:flex}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:48px 0 72px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;top:-15%;right:-10%;width:60%;height:80%;
+  background:radial-gradient(closest-side,rgba(234,195,43,.22),transparent 70%);
+  pointer-events:none;z-index:0;
+}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:end;position:relative;z-index:1}
+.hero h1{
+  font-size:clamp(2.6rem,8.5vw,5.6rem);
+  font-variation-settings:"opsz" 144,"SOFT" 50,"wght" 380;
+}
+.hero h1 em{
+  font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 100,"wght" 340;
+  background:linear-gradient(120deg,var(--orange) 0%,var(--yellow) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-kicker{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.hero-kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(251,170,52,.22)}
+.hero-lede{
+  font-family:var(--serif);font-weight:300;font-style:italic;
+  font-size:clamp(1.05rem,2.4vw,1.3rem);line-height:1.45;color:var(--ink-2);
+  max-width:44ch;margin-top:28px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;
+  font-size:.94rem;font-weight:500;transition:transform .2s ease,background .2s,border-color .2s,box-shadow .2s;
+  will-change:transform;
+}
+.btn-primary{background:var(--ink);color:var(--paper);box-shadow:0 10px 30px -12px rgba(7,62,129,.5)}
+.btn-primary:hover{background:var(--ink-deep);transform:translateY(-2px);box-shadow:0 14px 32px -10px rgba(7,62,129,.55)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--hair)}
+.btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn svg{width:16px;height:16px}
+
+.hero-meta{
+  margin-top:56px;padding-top:24px;border-top:1px solid var(--hair);
+  display:grid;grid-template-columns:repeat(2,1fr);gap:22px;position:relative;z-index:1;
+}
+.meta-item .eyebrow{margin-bottom:4px}
+.meta-item .v{font-family:var(--serif);font-size:1.15rem}
+@media (min-width:720px){
+  .hero{padding:72px 0 110px}
+  .hero-grid{grid-template-columns:1.3fr 1fr;gap:60px}
+  .hero-meta{grid-template-columns:repeat(4,1fr);margin-top:80px}
+}
+
+/* hero visual — foto con overlay */
+.hero-visual{position:relative;aspect-ratio:4/5;width:100%;max-width:440px;margin-left:auto}
+.hv-photo{
+  position:absolute;inset:0;border-radius:20px;overflow:hidden;
+  box-shadow:0 30px 60px -20px rgba(7,62,129,.4),0 10px 20px -8px rgba(7,62,129,.2);
+}
+.hv-photo img{width:100%;height:100%;object-fit:cover}
+.hv-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,62,129,.1) 0%,transparent 35%,rgba(7,62,129,.75) 100%);
+  pointer-events:none;
+}
+.hv-label{position:absolute;top:22px;left:22px;z-index:2;color:rgba(251,248,242,.95);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;text-shadow:0 2px 12px rgba(7,42,88,.7)}
+.hv-stat{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;color:var(--paper)}
+.hv-stat .big{font-family:var(--serif);font-size:clamp(2.6rem,6vw,4rem);line-height:.9;letter-spacing:-.03em;font-variation-settings:"opsz" 144,"SOFT" 60,"wght" 320;color:var(--yellow)}
+.hv-stat .sub{margin-top:10px;max-width:28ch;font-size:.95rem;color:rgba(251,248,242,.92);line-height:1.4}
+.hv-badge{
+  position:absolute;top:42px;right:-10px;z-index:3;transform:rotate(6deg);
+  background:var(--yellow);color:var(--ink);padding:10px 16px;border-radius:10px;
+  font-family:var(--serif);font-weight:500;font-size:.9rem;letter-spacing:-.01em;
+  box-shadow:0 12px 24px -10px rgba(234,195,43,.6);
+}
+
+/* ---------- MOSAICO DE FOTOS ---------- */
+.mosaic{background:var(--paper);padding:0 0 80px}
+.mosaic-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+.mosaic-grid .tile{
+  position:relative;overflow:hidden;border-radius:14px;aspect-ratio:4/5;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1);
+  display:block;
+}
+.mosaic-grid .tile:hover{transform:translateY(-4px)}
+.mosaic-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.mosaic-grid .tile:hover img{transform:scale(1.04)}
+@media (min-width:720px){
+  .mosaic-grid{grid-template-columns:repeat(3,1fr);gap:18px}
+  .mosaic-grid .tile:nth-child(2){aspect-ratio:4/6;margin-top:30px}
+}
+
+/* ---------- SECCIONES ---------- */
+.section{padding:80px 0;position:relative}
+.section-head{max-width:720px;margin-bottom:48px}
+.section-head h2{
+  font-size:clamp(2rem,5vw,3.2rem);margin-top:14px;
+  font-variation-settings:"opsz" 144,"SOFT" 60,"wght" 380;
+}
+.section-head h2 em{font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 100,"wght" 340;background:linear-gradient(120deg,var(--orange),var(--yellow));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.section-head p{margin-top:18px;color:var(--muted);font-size:1.02rem;max-width:60ch}
+
+/* ---------- SERVICIOS ---------- */
+.services{background:var(--paper)}
+.svc-grid{
+  display:grid;grid-template-columns:1fr;gap:1px;
+  background:var(--hair);border:1px solid var(--hair);border-radius:16px;overflow:hidden;
+}
+.svc{
+  background:var(--paper);padding:28px 24px;position:relative;
+  transition:background .3s ease;
+}
+.svc:hover{background:var(--paper-2)}
+.svc-num{font-family:var(--serif);font-size:.82rem;color:var(--orange);letter-spacing:.04em;font-style:italic;font-weight:500}
+.svc h3{
+  font-family:var(--serif);font-weight:400;font-size:1.35rem;margin:8px 0 14px;
+  font-variation-settings:"opsz" 48,"SOFT" 50;
+}
+.svc ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.svc li{
+  font-size:.82rem;color:var(--ink-2);background:transparent;
+  border:1px solid var(--hair);padding:4px 10px;border-radius:999px;
+}
+@media (min-width:640px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:980px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- DONDE ATENDEMOS ---------- */
+.locations{
+  background:var(--ink);color:var(--paper);
+  padding:90px 0 110px;position:relative;overflow:hidden;
+}
+.locations::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(700px 400px at 85% -10%,rgba(234,195,43,.18),transparent 60%),
+    radial-gradient(500px 300px at -5% 100%,rgba(251,170,52,.14),transparent 70%);
+}
+.locations .eyebrow{color:rgba(251,248,242,.6)}
+.locations .section-head h2{color:var(--paper)}
+.locations .section-head h2 em{background:linear-gradient(120deg,var(--yellow),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.locations .section-head p{color:rgba(251,248,242,.72)}
+
+.loc-layout{
+  display:grid;grid-template-columns:1fr;gap:36px;
+  position:relative;
+}
+@media (min-width:900px){.loc-layout{grid-template-columns:1.05fr 1fr;gap:60px}}
+
+/* sede central */
+.sede{
+  background:linear-gradient(180deg,rgba(251,248,242,.06),rgba(251,248,242,.02));
+  border:1px solid rgba(251,248,242,.14);border-radius:20px;
+  overflow:hidden;position:relative;
+}
+.sede-photo{position:relative;aspect-ratio:16/9;overflow:hidden}
+.sede-photo img{width:100%;height:100%;object-fit:cover}
+.sede-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(7,62,129,.85) 100%);
+}
+.sede-body{padding:26px 28px 32px}
+.sede-tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:.74rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);
+  padding:6px 12px;border:1px solid rgba(234,195,43,.4);border-radius:999px;
+}
+.sede-tag .pulse{width:6px;height:6px;border-radius:50%;background:var(--yellow);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.85)}}
+.sede h3{
+  font-family:var(--serif);font-size:clamp(1.8rem,3.6vw,2.4rem);margin:18px 0 8px;
+  font-variation-settings:"opsz" 96,"SOFT" 60,"wght" 380;
+}
+.sede-address{font-family:var(--serif);font-style:italic;color:rgba(251,248,242,.9);font-size:1.05rem;margin-bottom:22px}
+.sede-details{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin-top:22px;padding-top:22px;border-top:1px solid rgba(251,248,242,.12)}
+.sede-details .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(251,248,242,.55);margin-bottom:4px}
+.sede-details .v{font-size:.96rem;color:rgba(251,248,242,.94)}
+.sede-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.sede-cta a{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 18px;border-radius:999px;font-size:.88rem;font-weight:500;
+  transition:background .2s,transform .2s;
+}
+.sede-cta .wa{background:var(--orange);color:var(--ink)}
+.sede-cta .wa:hover{background:var(--yellow);transform:translateY(-1px)}
+.sede-cta .map{background:transparent;color:var(--paper);border:1px solid rgba(251,248,242,.22)}
+.sede-cta .map:hover{border-color:var(--paper)}
+.sede-cta svg{width:15px;height:15px}
+
+/* extracciones */
+.extractions{
+  background:rgba(251,248,242,.05);border:1px solid rgba(251,248,242,.14);
+  border-radius:20px;padding:28px 24px;
+}
+.ext-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.ext-head h4{font-family:var(--serif);font-size:1.3rem;font-variation-settings:"opsz" 48,"SOFT" 60,"wght" 380}
+.ext-head .pill{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow)}
+
+.day{
+  display:grid;grid-template-columns:84px 1fr;gap:18px;
+  padding:18px 0;border-bottom:1px solid rgba(251,248,242,.1);
+}
+.day:last-child{border-bottom:0}
+.day-label{
+  font-family:var(--serif);font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--yellow);padding-top:4px;
+  font-style:italic;font-variation-settings:"opsz" 14,"SOFT" 40,"wght" 400;
+}
+.day-stops{display:flex;flex-direction:column;gap:14px}
+.stop{display:flex;align-items:flex-start;gap:14px}
+.stop-bullet{
+  width:10px;height:10px;border-radius:50%;background:var(--orange);margin-top:6px;flex:none;
+  box-shadow:0 0 0 4px rgba(251,170,52,.18);
+}
+.stop-name{font-family:var(--serif);font-size:1.05rem;color:var(--paper);line-height:1.25}
+.stop-time{font-size:.82rem;color:rgba(251,248,242,.68);margin-top:2px;font-variant-numeric:tabular-nums}
+.stop-note{font-size:.74rem;color:var(--yellow);margin-top:4px;letter-spacing:.02em}
+
+.loc-foot{
+  margin-top:40px;font-family:var(--serif);font-style:italic;
+  font-size:1.02rem;color:rgba(251,248,242,.75);max-width:56ch;
+}
+
+/* ---------- CALIDAD ---------- */
+.quality{background:var(--paper-2)}
+.q-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+.q-visual{position:relative;aspect-ratio:5/4;border-radius:20px;overflow:hidden;background:var(--ink);color:var(--paper)}
+.q-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4;z-index:0}
+.q-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,62,129,.35),rgba(7,62,129,.92));z-index:1}
+.q-visual-inner{position:relative;z-index:2;padding:32px;height:100%;display:flex;flex-direction:column;justify-content:space-between}
+.q-visual .n{font-family:var(--serif);font-size:clamp(3rem,8vw,5.5rem);line-height:.9;font-variation-settings:"opsz" 144,"SOFT" 80,"wght" 320;color:var(--yellow)}
+.q-visual .n sup{font-size:.35em;vertical-align:top;color:var(--orange);margin-left:6px}
+.q-visual .c{font-size:.95rem;color:rgba(251,248,242,.92);max-width:32ch}
+
+.q-text h3{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.05;font-variation-settings:"opsz" 96,"SOFT" 60,"wght" 380;margin-bottom:18px}
+.q-text h3 em{font-style:italic;background:linear-gradient(120deg,var(--orange),var(--yellow));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.q-text p{color:var(--muted);margin-bottom:14px;max-width:56ch}
+.q-pillars{display:grid;grid-template-columns:1fr;gap:12px;margin-top:26px}
+.q-pillar{
+  display:flex;gap:14px;padding:16px 18px;background:var(--paper);
+  border-radius:14px;border:1px solid var(--hair);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.q-pillar:hover{transform:translateY(-2px);box-shadow:0 8px 22px -10px rgba(7,62,129,.2)}
+.q-pillar .icn{width:34px;height:34px;border-radius:10px;background:var(--ink);color:var(--paper);display:grid;place-items:center;flex:none}
+.q-pillar .icn svg{width:17px;height:17px}
+.q-pillar h4{font-family:var(--serif);font-size:1.05rem;margin-bottom:2px;font-weight:500}
+.q-pillar p{font-size:.84rem;color:var(--muted);margin:0}
+@media (min-width:820px){
+  .q-grid{grid-template-columns:1fr 1.2fr;gap:60px}
+  .q-pillars{grid-template-columns:1fr 1fr}
+}
+
+/* ---------- COBERTURAS ---------- */
+.coverage{background:var(--paper)}
+.cov-wrap{position:relative;overflow:hidden;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:28px 0;margin-top:28px}
+.cov-track{
+  display:flex;gap:48px;width:max-content;
+  animation:slide 40s linear infinite;
+}
+.cov-track:hover{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.cov-item{
+  font-family:var(--serif);font-size:1.15rem;white-space:nowrap;color:var(--ink-2);
+  display:flex;align-items:center;gap:16px;
+}
+.cov-item::after{content:"✦";color:var(--orange);font-size:.8rem}
+.cov-item:last-child::after{display:none}
+.cov-note{margin-top:24px;font-size:.88rem;color:var(--muted);font-family:var(--serif);font-style:italic}
+
+/* ---------- PORTAL ---------- */
+.portal{background:var(--ink-deep);color:var(--paper);padding:70px 0;position:relative;overflow:hidden}
+.portal::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 350px at 0% 100%,rgba(234,195,43,.18),transparent 60%);pointer-events:none}
+.portal-inner{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;position:relative;z-index:1}
+.portal h3{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-variation-settings:"opsz" 96,"SOFT" 60,"wght" 380;line-height:1.1}
+.portal h3 em{color:var(--yellow);font-style:italic}
+.portal p{color:rgba(251,248,242,.75);margin-top:12px;max-width:48ch}
+.portal-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+@media (min-width:820px){.portal-inner{grid-template-columns:1.3fr auto;gap:40px}}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:var(--paper);padding:60px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:34px;margin-bottom:40px}
+.foot-col h5{font-family:var(--serif);font-size:.88rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,248,242,.55);margin-bottom:14px;font-weight:400}
+.foot-col p,.foot-col a{color:rgba(251,248,242,.88);font-size:.94rem;line-height:1.65;display:block}
+.foot-col a:hover{color:var(--yellow)}
+.foot-bottom{padding-top:24px;border-top:1px solid rgba(251,248,242,.12);font-size:.78rem;color:rgba(251,248,242,.55);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media (min-width:720px){.foot-grid{grid-template-columns:1.5fr 1fr 1fr 1fr}}
+
+/* ---------- FAB ---------- */
+.fab{
+  position:fixed;right:18px;bottom:18px;z-index:40;
+  width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;
+  display:grid;place-items:center;
+  box-shadow:0 14px 30px -8px rgba(37,211,102,.55),0 4px 10px -2px rgba(0,0,0,.15);
+  transition:transform .25s ease;
+}
+.fab:hover{transform:scale(1.07) rotate(-4deg)}
+.fab svg{width:26px;height:26px}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .cov-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="brand" aria-label="ByB Laboratorio">
+      <span class="brand-mark">B</span>
+      <span>ByB <span style="color:var(--muted);font-weight:400">Laboratorio</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#servicios">Servicios</a>
+      <a href="#sedes">Dónde atendemos</a>
+      <a href="#calidad">Calidad</a>
+      <a href="#coberturas">Coberturas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-cta" href="https://analisyscloud.com.ar/m-buscarestudios.php" target="_blank" rel="noopener">
+      Resultados
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-kicker reveal">
+        <span class="dot"></span>
+        <span class="eyebrow">Alta Gracia · Córdoba</span>
+      </div>
+      <h1 class="display reveal">
+        Análisis<br>
+        clínicos <em>con</em><br>
+        criterio humano.
+      </h1>
+      <p class="hero-lede reveal">
+        Con sede central frente al Tajamar, brindamos un servicio de calidad para un amplio radio que incluye los valles de Paravachasca y Calamuchita.
+      </p>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="http://wa.me/+5493516652235">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.64 4.06 1.73 5.66L2 22l4.57-1.82A9.9 9.9 0 0 0 12.04 22C17.5 22 22 17.5 22 12.04 22 6.58 17.5 2 12.04 2zm0 18.13c-1.67 0-3.24-.47-4.57-1.31l-.33-.2-2.7 1.07 1.08-2.64-.21-.34a8.1 8.1 0 0 1-1.25-4.37c0-4.49 3.66-8.15 8.15-8.15s8.15 3.66 8.15 8.15c0 4.49-3.66 8.15-8.15 8.15zm4.47-6.1c-.24-.12-1.45-.71-1.68-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+          351 665 2235
+        </a>
+        <a class="btn btn-ghost" href="#servicios">
+          Ver prestaciones
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="hv-photo">
+        <img src="https://raw.githubusercontent.com/candelaboni6/byb/main/16%20-%20ByB%20-%20Laboratorio.jpg"
+             alt="Laboratorio ByB — Alta Gracia"
+             loading="eager" fetchpriority="high">
+      </div>
+      <span class="hv-label">ByB / Laboratorio</span>
+      <div class="hv-stat">
+        <div class="big">+ de 100</div>
+        <div class="sub">prestaciones entre química, serología, microbiología y hormonas.</div>
+      </div>
+      <div class="hv-badge">Adheridos PEEC · FBA</div>
+    </div>
+  </div>
+
+  <div class="wrap hero-meta reveal">
+    <div class="meta-item">
+      <div class="eyebrow">Sede central</div>
+      <div class="v">Lucas V. Córdoba 264</div>
+    </div>
+    <div class="meta-item">
+      <div class="eyebrow">Turnos</div>
+      <div class="v">351 665 2235</div>
+    </div>
+    <div class="meta-item">
+      <div class="eyebrow">Dirección técnica</div>
+      <div class="v">Bioq. Lucila Martini</div>
+    </div>
+    <div class="meta-item">
+      <div class="eyebrow">Habilitación</div>
+      <div class="v">CoBiCo Nº A 21477/2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- MOSAICO -->
+<section class="mosaic">
+  <div class="wrap">
+    <div class="mosaic-grid reveal">
+      <a class="tile" href="#calidad" aria-label="Ver calidad">
+        <img src="https://raw.githubusercontent.com/candelaboni6/byb/main/39%20-%20ByB%20-%20Laboratorio.jpg"
+             alt="Instalaciones del laboratorio" loading="lazy">
+      </a>
+      <a class="tile" href="#calidad" aria-label="Ver calidad">
+        <img src="https://raw.githubusercontent.com/candelaboni6/byb/main/25%20-%20ByB%20-%20Laboratorio.jpg"
+             alt="Equipo profesional de ByB" loading="lazy">
+      </a>
+      <a class="tile" href="#sedes" aria-label="Ver sedes">
+        <img src="https://raw.githubusercontent.com/candelaboni6/byb/main/26%20-%20ByB%20-%20Laboratorio.jpg"
+             alt="Sede central ByB Laboratorio" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="section services" id="servicios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Prestaciones</span>
+      <h2 class="display">Todos tus análisis <em>en un solo lugar.</em></h2>
+      <p>Nueve áreas de trabajo que cubren el chequeo general, la alta complejidad y los estudios que tu médico necesita para un diagnóstico preciso.</p>
+    </div>
+
+    <div class="svc-grid reveal">
+      <div class="svc">
+        <span class="svc-num">01 —</span>
+        <h3>Química clínica</h3>
+        <ul>
+          <li>Perfil lipídico</li>
+          <li>Metabolismo de la glucosa</li>
+          <li>Función hepática</li>
+          <li>Función renal</li>
+          <li>Enzimas cardíacas</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="svc-num">02 —</span>
+        <h3>Endocrinología</h3>
+        <ul>
+          <li>Función tiroidea</li>
+          <li>Hormonas sexuales</li>
+          <li>Cortisol</li>
+          <li>Hormona de crecimiento</li>
+          <li>Hemoglobina glucosilada</li>
+          <li>Insulina</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="svc-num">03 —</span>
+        <h3>Alergias e inmunología</h3>
+        <ul>
+          <li>Alergenos alimentarios y químicos</li>
+          <li>Inmunoglobulinas</li>
+          <li>Anticuerpos específicos</li>
+          <li>Perfil reumatoideo</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="svc-num">04 —</span>
+        <h3>Virología</h3>
+        <ul>
+          <li>Serología</li>
+          <li>Carga viral</li>
+          <li>Detección COVID-19</li>
+          <li>Influenza</li>
+          <li>Detección de dengue</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="svc-num">05 —</span>
+        <h3>Microbiología</h3>
+        <ul>
+          <li>Urocultivo</li>
+          <li>Hisopados</li>
+          <li>Parasitológico</li>
+          <li>Micológicos</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="svc-num">06 —</span>
+        <h3>Bacteriología</h3>
+        <ul>
+          <li>Identificación de patógenos</li>
+          <li>Detección de resistencia</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="svc-num">07 —</span>
+        <h3>Marcadores tumorales</h3>
+        <ul>
+          <li>Antígeno prostático</li>
+          <li>CEA</li>
+          <li>CA 19-9</li>
+          <li>CA 125</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="svc-num">08 —</span>
+        <h3>Screening</h3>
+        <ul>
+          <li>Neonatal</li>
+          <li>Drogas de abuso</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="svc-num">09 —</span>
+        <h3>A domicilio</h3>
+        <ul>
+          <li>Extracciones a domicilio</li>
+          <li>Coordinación por WhatsApp</li>
+          <li>Alta Gracia y zona</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONDE ATENDEMOS -->
+<section class="section locations" id="sedes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Dónde atendemos</span>
+      <h2 class="display">Cerca tuyo, <em>donde estés.</em></h2>
+      <p>Nuestra sede central está en Alta Gracia, pero también extendemos extracciones a Villa del Prado, Villa Ciudad de América y Los Reartes para acercarte el laboratorio a tu comuna.</p>
+    </div>
+
+    <div class="loc-layout">
+      <!-- SEDE CENTRAL -->
+      <div class="sede reveal">
+        <div class="sede-photo">
+          <img src="https://raw.githubusercontent.com/candelaboni6/byb/main/53%20-%20ByB%20-%20Laboratorio.jpg"
+               alt="Sede central ByB Laboratorio en Alta Gracia" loading="lazy">
+        </div>
+        <div class="sede-body">
+          <span class="sede-tag"><span class="pulse"></span>Sede central</span>
+          <h3>Alta Gracia</h3>
+          <p class="sede-address">Lucas V. Córdoba 264 · frente al Tajamar</p>
+
+          <p style="color:rgba(251,248,242,.78);max-width:42ch;font-size:.96rem;">
+            Infraestructura amigable, tecnología de punta y equipo bioquímico idóneo. Amplio radio de cobertura en los valles de Paravachasca y Calamuchita.
+          </p>
+
+          <div class="sede-details">
+            <div>
+              <div class="k">Teléfono</div>
+              <div class="v">351 665 2235</div>
+            </div>
+            <div>
+              <div class="k">Dirección técnica</div>
+              <div class="v">Bioq. Lucila Martini · MP 5.765</div>
+            </div>
+            <div>
+              <div class="k">Instagram</div>
+              <div class="v">@laboratorio.byb</div>
+            </div>
+            <div>
+              <div class="k">Habilitación</div>
+              <div class="v">CoBiCo Nº A 21477/2024</div>
+            </div>
+          </div>
+
+          <div class="sede-cta">
+            <a class="wa" href="http://wa.me/+5493516652235" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.64 4.06 1.73 5.66L2 22l4.57-1.82A9.9 9.9 0 0 0 12.04 22C17.5 22 22 17.5 22 12.04 22 6.58 17.5 2 12.04 2z"/></svg>
+              Pedir turno
+            </a>
+            <a class="map" href="https://maps.google.com/?q=Lucas+V.+Córdoba+264,+Alta+Gracia,+Córdoba" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-13a7 7 0 0 0-14 0c0 5.42 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Cómo llegar
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXTRACCIONES EN COMUNAS -->
+      <div class="extractions reveal">
+        <div class="ext-head">
+          <h4>Extracciones en comunas</h4>
+          <span class="pill">Semana</span>
+        </div>
+
+        <div class="day">
+          <div class="day-label">Martes</div>
+          <div class="day-stops">
+            <div class="stop">
+              <div class="stop-bullet"></div>
+              <div>
+                <div class="stop-name">Villa del Prado</div>
+                <div class="stop-time">08:00 — 09:30 h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-label">Miércoles</div>
+          <div class="day-stops">
+            <div class="stop">
+              <div class="stop-bullet"></div>
+              <div>
+                <div class="stop-name">Villa Ciudad de América</div>
+                <div class="stop-time">08:30 — 09:30 h</div>
+                <div class="stop-note">· cada 15 días</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-label">Jueves</div>
+          <div class="day-stops">
+            <div class="stop">
+              <div class="stop-bullet"></div>
+              <div>
+                <div class="stop-name">Villa del Prado</div>
+                <div class="stop-time">08:00 — 09:30 h</div>
+              </div>
+            </div>
+            <div class="stop">
+              <div class="stop-bullet"></div>
+              <div>
+                <div class="stop-name">Los Reartes</div>
+                <div class="stop-time">07:30 — 09:00 h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="loc-foot reveal">
+      ¿Necesitás coordinar una extracción o confirmar si ese día vamos a tu comuna? Escribinos por WhatsApp al <strong style="color:var(--paper)">351 665 2235</strong> y te confirmamos horario y requisitos.
+    </p>
+  </div>
+</section>
+
+<!-- CALIDAD -->
+<section class="section quality" id="calidad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">ByB Laboratorio</span>
+      <h2 class="display">Compromiso con la <em>calidad analítica.</em></h2>
+    </div>
+
+    <div class="q-grid">
+      <div class="q-visual reveal">
+        <img src="https://raw.githubusercontent.com/candelaboni6/byb/main/21%20-%20ByB%20-%20Laboratorio.jpg"
+             alt="Equipamiento del laboratorio" loading="lazy">
+        <div class="q-visual-inner">
+          <div>
+            <span class="eyebrow" style="color:rgba(251,248,242,.65)">Programa PEEC</span>
+            <div class="n">1987<sup>●</sup></div>
+            <p style="color:rgba(251,248,242,.9);margin-top:8px;font-family:var(--serif);font-style:italic">Fundación Bioquímica Argentina</p>
+          </div>
+          <p class="c">Adheridos al Programa de Evaluación Externa de Calidad, que permite a los laboratorios de análisis clínicos mejorar la calidad de sus prestaciones y obtener mayor transferibilidad de los resultados.</p>
+        </div>
+      </div>
+
+      <div class="q-text reveal">
+        <h3>Tres pilares, una <em>forma de trabajar</em>.</h3>
+        <p>Infraestructura amigable, tecnología de punta y recursos humanos idóneos son los tres pilares sobre los que se asienta ByB. Una cómoda casona en pleno centro, frente al Tajamar, pensada para que el paciente se sienta acompañado desde que entra.</p>
+
+        <div class="q-pillars">
+          <div class="q-pillar">
+            <div class="icn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+            </div>
+            <div>
+              <h4>Resultados precisos</h4>
+              <p>Autoanalizador Wiener Lab CM-250 para resultados confiables en tiempo récord.</p>
+            </div>
+          </div>
+          <div class="q-pillar">
+            <div class="icn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 21v-1a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1"/></svg>
+            </div>
+            <div>
+              <h4>Equipo bioquímico</h4>
+              <p>Profesionales matriculados con atención humana y cercana.</p>
+            </div>
+          </div>
+          <div class="q-pillar">
+            <div class="icn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v5c0 5 4 8 9 10 5-2 9-5 9-10V7l-9-5z"/></svg>
+            </div>
+            <div>
+              <h4>Calidad certificada</h4>
+              <p>Control externo de calidad permanente por Fundación Bioquímica Argentina.</p>
+            </div>
+          </div>
+          <div class="q-pillar">
+            <div class="icn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </div>
+            <div>
+              <h4>Turnos ágiles</h4>
+              <p>Coordinación rápida por WhatsApp y acceso a resultados online.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COBERTURAS -->
+<section class="section coverage" id="coberturas">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Obras sociales y prepagas</span>
+      <h2 class="display">Trabajamos con <em>tu cobertura.</em></h2>
+      <p>Atendemos las principales obras sociales y prepagas del país. Consultanos por tu cobertura al pedir el turno.</p>
+    </div>
+
+    <div class="cov-wrap reveal" aria-hidden="false">
+      <div class="cov-track">
+        <span class="cov-item">OSDE</span>
+        <span class="cov-item">Swiss Medical</span>
+        <span class="cov-item">APROSS</span>
+        <span class="cov-item">PAMI</span>
+        <span class="cov-item">Jerárquicos Salud</span>
+        <span class="cov-item">Sancor Salud</span>
+        <span class="cov-item">Avalian</span>
+        <span class="cov-item">Federada Salud</span>
+        <span class="cov-item">IOSFA</span>
+        <span class="cov-item">DASPU</span>
+        <span class="cov-item">APM</span>
+        <span class="cov-item">Caja de Abogados</span>
+        <span class="cov-item">CPCE</span>
+        <span class="cov-item">Luz y Fuerza</span>
+        <span class="cov-item">Nobis</span>
+        <span class="cov-item">Prevención Salud</span>
+        <!-- duplicado para loop -->
+        <span class="cov-item">OSDE</span>
+        <span class="cov-item">Swiss Medical</span>
+        <span class="cov-item">APROSS</span>
+        <span class="cov-item">PAMI</span>
+        <span class="cov-item">Jerárquicos Salud</span>
+        <span class="cov-item">Sancor Salud</span>
+        <span class="cov-item">Avalian</span>
+        <span class="cov-item">Federada Salud</span>
+        <span class="cov-item">IOSFA</span>
+        <span class="cov-item">DASPU</span>
+        <span class="cov-item">APM</span>
+        <span class="cov-item">Caja de Abogados</span>
+        <span class="cov-item">CPCE</span>
+        <span class="cov-item">Luz y Fuerza</span>
+        <span class="cov-item">Nobis</span>
+        <span class="cov-item">Prevención Salud</span>
+      </div>
+    </div>
+    <p class="cov-note">¿No ves tu cobertura? Consultanos — trabajamos con más prestadores y evaluamos convenios particulares.</p>
+  </div>
+</section>
+
+<!-- PORTAL -->
+<section class="portal" id="contacto">
+  <div class="wrap portal-inner">
+    <div>
+      <span class="eyebrow" style="color:rgba(251,248,242,.55)">Portal del paciente</span>
+      <h3 style="margin-top:10px">Tus resultados online, <em>cuando los necesites.</em></h3>
+      <p>Conocer el resultado de tus análisis clínicos ahora es más fácil. Ingresá al Portal del paciente con tu usuario y clave.</p>
+    </div>
+    <div class="portal-cta">
+      <a class="btn btn-primary" style="background:var(--orange);color:var(--ink);box-shadow:0 10px 30px -12px rgba(251,170,52,.6)" href="https://analisyscloud.com.ar/m-buscarestudios.php" target="_blank" rel="noopener">
+        Ingresar al portal
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="brand" style="color:var(--paper);margin-bottom:14px">
+          <span class="brand-mark" style="background:var(--yellow);color:var(--ink);box-shadow:none">B</span>
+          <span>ByB <span style="color:rgba(251,248,242,.55);font-weight:400">Laboratorio</span></span>
+        </div>
+        <p style="color:rgba(251,248,242,.68);max-width:38ch">Laboratorio de análisis clínicos en Alta Gracia. Comprometidos con el cuidado de tu salud.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Sede central</h5>
+        <p>Lucas V. Córdoba 264</p>
+        <p>Alta Gracia, Córdoba</p>
+        <a href="https://maps.google.com/?q=Lucas+V.+Córdoba+264,+Alta+Gracia" target="_blank" rel="noopener" style="color:var(--yellow);margin-top:8px">Cómo llegar →</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contacto</h5>
+        <a href="http://wa.me/+5493516652235">WhatsApp · 351 665 2235</a>
+        <a href="https://www.instagram.com/laboratorio.byb/" target="_blank" rel="noopener">@laboratorio.byb</a>
+      </div>
+      <div class="foot-col">
+        <h5>Accesos</h5>
+        <a href="https://analisyscloud.com.ar/m-buscarestudios.php" target="_blank" rel="noopener">Resultados online</a>
+        <a href="#servicios">Prestaciones</a>
+        <a href="#sedes">Dónde atendemos</a>
+        <a href="#coberturas">Coberturas</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>BYB MEDICINA Y SALUD SRL · Aut. CoBiCo Nº A 21477/2024 · Vto. 2027 · Bioq. Lucila Martini · MP 5.765</span>
+      <span>© <span id="y"></span> ByB Laboratorio</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FAB -->
+<a class="fab" href="http://wa.me/+5493516652235" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.64 4.06 1.73 5.66L2 22l4.57-1.82A9.9 9.9 0 0 0 12.04 22C17.5 22 22 17.5 22 12.04 22 6.58 17.5 2 12.04 2zm4.47 14.03c-.24-.12-1.45-.71-1.68-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+</a>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
